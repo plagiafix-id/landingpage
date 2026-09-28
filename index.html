@@ -374,7 +374,28 @@
 <body>
   <div class="card">
     <div class="brand">
-      <div class="brand-icon">logo.png</div>
+     <div class="brand-icon">
+       .brand-icon {
+  /* Pastikan background dihapus jika logo kakak sudah memiliki warna latar sendiri, 
+     atau biarkan jika logo kakak transparan (PNG) dan ingin latar belakang biru tua (#0b2b4f) */
+  background: transparent; /* Ubah ini jika ingin background aslinya hilang */
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 16px -6px rgba(11, 43, 79, 0.2);
+  overflow: hidden; /* Tambahkan ini agar ujung gambar yang tajam terpotong melengkung */
+}
+
+.brand-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Membuat gambar proporsional memenuhi kotak */
+}
+  <img src="logo.png" alt="Logo Academic Draft Studio">
+</div>
       <div class="brand-name">Academic Draft Studio<span></span></div>
       <span class="badge"><i class="fas fa-check-circle" style="margin-right: 6px;"></i>terpercaya</span>
     </div>
