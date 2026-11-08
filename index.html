@@ -9,14 +9,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Inter', sans-serif;
-      /* Background luar biru-ungu menyesuaikan referensi */
       background: linear-gradient(135deg, #7A76FF, #554DDE);
       min-height: 100vh;
       display: flex;
@@ -28,12 +23,10 @@
       max-width: 1100px;
       width: 100%;
       background-color: #ffffff;
-      /* Menambahkan ornamen gelombang (wave) di sudut kanan bawah khas referensi */
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23605CFF' fill-opacity='0.08' d='M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,250.7C960,235,1056,181,1152,165.3C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
       background-position: bottom;
       background-repeat: no-repeat;
       background-size: cover;
-      /* Sudut card dibuat lebih tegas seperti referensi */
       border-radius: 16px;
       box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
       padding: 2.5rem 2.8rem;
@@ -43,250 +36,94 @@
     }
     
     /* header / brand */
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
-    }
-    .brand-icon {
-      width: 48px;
-      height: 48px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-    .brand-name {
-      font-size: 2rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      color: #161042; /* Dark Indigo */
-    }
-    .brand-name span {
-      color: #605CFF; /* Vibrant Purple */
-      font-weight: 700;
-    }
-    .badge {
-      background: #EDF0FF;
-      padding: 0.3rem 1rem;
-      border-radius: 40px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: #605CFF;
-      letter-spacing: 0.3px;
-      margin-left: 0.25rem;
-    }
+    .brand { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .brand-icon { width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .brand-name { font-size: 2rem; font-weight: 800; letter-spacing: -0.02em; color: #161042; }
+    .brand-name span { color: #605CFF; font-weight: 700; }
+    .badge { background: #EDF0FF; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.75rem; font-weight: 700; color: #605CFF; letter-spacing: 0.3px; margin-left: 0.25rem; }
 
     /* layout utama */
-    .hero {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      gap: 2.5rem;
-      margin: 1.5rem 0 2.5rem 0;
-      position: relative;
-      z-index: 1;
-    }
-    .hero-content {
-      flex: 1.2;
-    }
-    .hero-content h1 {
-      font-size: 2.8rem;
-      font-weight: 800;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-      color: #161042; /* Dark Indigo menyesuaikan referensi */
-      margin-bottom: 1.2rem;
-    }
-    .hero-content h1 i {
-      color: #605CFF;
-      font-weight: 400;
-    }
-    .hero-highlight {
-      background: #EDF0FF;
-      padding: 0.2rem 1rem;
-      border-radius: 40px;
-      display: inline-block;
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #605CFF;
-      margin-bottom: 0.8rem;
-    }
-    .desc {
-      font-size: 1.1rem;
-      color: #555273;
-      max-width: 500px;
-      line-height: 1.6;
-      margin: 1.2rem 0 2rem 0;
-      font-weight: 400;
-    }
-    .desc strong {
-      color: #161042;
-      font-weight: 700;
-    }
-    .stats {
-      display: flex;
-      gap: 2.5rem;
-      margin: 2rem 0 2.2rem 0;
-      flex-wrap: wrap;
-    }
-    .stat-item {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-    .stat-number {
-      font-weight: 800;
-      font-size: 1.5rem;
-      color: #161042;
-    }
-    .stat-label {
-      font-weight: 500;
-      color: #6B688A;
-      font-size: 0.95rem;
-    }
-    .stat-icon {
-      color: #605CFF;
-      font-size: 1.2rem;
-    }
+    .hero { display: flex; flex-direction: row; align-items: center; gap: 2.5rem; margin: 1.5rem 0 2.5rem 0; position: relative; z-index: 1; }
+    .hero-content { flex: 1.2; }
+    .hero-content h1 { font-size: 2.8rem; font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; color: #161042; margin-bottom: 1.2rem; }
+    .hero-content h1 i { color: #605CFF; font-weight: 400; }
+    .hero-highlight { background: #EDF0FF; padding: 0.2rem 1rem; border-radius: 40px; display: inline-block; font-size: 1.1rem; font-weight: 700; color: #605CFF; margin-bottom: 0.8rem; }
+    .desc { font-size: 1.1rem; color: #555273; max-width: 500px; line-height: 1.6; margin: 1.2rem 0 2rem 0; font-weight: 400; }
+    .desc strong { color: #161042; font-weight: 700; }
+    .stats { display: flex; gap: 2.5rem; margin: 2rem 0 2.2rem 0; flex-wrap: wrap; }
+    .stat-item { display: flex; align-items: center; gap: 0.6rem; }
+    .stat-number { font-weight: 800; font-size: 1.5rem; color: #161042; }
+    .stat-label { font-weight: 500; color: #6B688A; font-size: 0.95rem; }
+    .stat-icon { color: #605CFF; font-size: 1.2rem; }
 
     /* tombol aksi */
-    .btn-group {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 1rem;
-      margin-top: 0.5rem;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.6rem;
-      padding: 0.9rem 2rem;
-      border-radius: 60px; /* Bentuk Pill seperti referensi */
-      font-weight: 700;
-      font-size: 1.05rem;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      flex: 1 0 auto;
-      text-align: center;
-    }
-    .btn-wa {
-      background: #25D366; /* Tetap hijau agar identitas WA tidak hilang */
-      color: white;
-      box-shadow: 0 8px 18px -6px rgba(37, 211, 102, 0.3);
-    }
-    .btn-wa:hover {
-      background: #1ebe5c;
-      transform: translateY(-2px);
-      box-shadow: 0 12px 24px -8px rgba(37, 211, 102, 0.4);
-    }
-    .btn-website {
-      background: #605CFF; /* Tombol ungu khas referensi */
-      color: white;
-      box-shadow: 0 8px 18px -6px rgba(96, 92, 255, 0.3);
-    }
-    .btn-website:hover {
-      background: #4B47DE;
-      transform: translateY(-2px);
-      box-shadow: 0 12px 24px -8px rgba(96, 92, 255, 0.4);
-    }
+    .btn-group { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-top: 0.5rem; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; padding: 0.9rem 2rem; border-radius: 60px; font-weight: 700; font-size: 1.05rem; text-decoration: none; transition: all 0.2s ease; flex: 1 0 auto; text-align: center; cursor: pointer; border: none; }
+    .btn-wa { background: #25D366; color: white; box-shadow: 0 8px 18px -6px rgba(37, 211, 102, 0.3); }
+    .btn-wa:hover { background: #1ebe5c; transform: translateY(-2px); box-shadow: 0 12px 24px -8px rgba(37, 211, 102, 0.4); }
+    .btn-website { background: #605CFF; color: white; box-shadow: 0 8px 18px -6px rgba(96, 92, 255, 0.3); }
+    .btn-website:hover { background: #4B47DE; transform: translateY(-2px); box-shadow: 0 12px 24px -8px rgba(96, 92, 255, 0.4); }
 
     /* gambar/ilustrasi */
-    .hero-visual {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-    }
-    .illustration {
-      background: #ffffff;
-      border-radius: 24px;
-      padding: 2rem 1.5rem;
-      width: 100%;
-      max-width: 320px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 20px 40px -10px rgba(96, 92, 255, 0.15);
+    .hero-visual { flex: 1; display: flex; justify-content: center; align-items: center; width: 100%; }
+    .illustration { background: #ffffff; border-radius: 24px; padding: 2rem 1.5rem; width: 100%; max-width: 320px; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 20px 40px -10px rgba(96, 92, 255, 0.15); border: 1px solid #EDF0FF; text-align: center; position: relative; z-index: 2; }
+    .illustration i.main-icon { font-size: 3.5rem; color: #ffffff; background: #605CFF; padding: 1rem; border-radius: 16px; box-shadow: 0 12px 24px -12px rgba(96, 92, 255, 0.5); margin-bottom: 1.2rem; }
+    .illustration h3 { font-weight: 800; color: #161042; font-size: 1.2rem; margin-top: 0.4rem; }
+    .illustration p { font-size: 0.9rem; color: #555273; max-width: 200px; font-weight: 400; line-height: 1.5; margin: 0.8rem 0; }
+    .pill-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-top: 0.8rem; font-size: 0.85rem; font-weight: 700; }
+    .pill-list span { background: #EDF0FF; padding: 0.4rem 0.8rem; border-radius: 30px; color: #605CFF; }
+    .pill-list i { font-size: 0.8rem; margin-right: 0.3rem; color: #605CFF; }
+
+    /* KALKULATOR SECTION */
+    .calculator {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(8px);
       border: 1px solid #EDF0FF;
-      text-align: center;
-      position: relative;
-      z-index: 2;
-    }
-    .illustration i.main-icon {
-      font-size: 3.5rem;
-      color: #ffffff;
-      background: #605CFF; /* Ikon menyesuaikan tema ungu */
-      padding: 1rem;
-      border-radius: 16px;
-      box-shadow: 0 12px 24px -12px rgba(96, 92, 255, 0.5);
-      margin-bottom: 1.2rem;
-    }
-    .illustration h3 {
-      font-weight: 800;
-      color: #161042;
-      font-size: 1.2rem;
-      margin-top: 0.4rem;
-    }
-    .illustration p {
-      font-size: 0.9rem;
-      color: #555273;
-      max-width: 200px;
-      font-weight: 400;
-      line-height: 1.5;
-      margin: 0.8rem 0;
-    }
-    .pill-list {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.5rem;
-      margin-top: 0.8rem;
-      font-size: 0.85rem;
-      font-weight: 700;
-    }
-    .pill-list span {
-      background: #EDF0FF;
-      padding: 0.4rem 0.8rem;
-      border-radius: 30px;
-      color: #605CFF;
-    }
-    .pill-list i {
-      font-size: 0.8rem;
-      margin-right: 0.3rem;
-      color: #605CFF;
-    }
-    .footer-note {
-      margin-top: 2.8rem;
-      border-top: 1px solid #EDF0FF;
-      padding-top: 1.5rem;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      color: #6B688A;
-      font-size: 0.9rem;
-      gap: 1rem;
+      border-radius: 24px;
+      padding: 2rem;
+      margin: 2rem 0;
+      box-shadow: 0 10px 30px -10px rgba(22, 16, 66, 0.05);
       position: relative;
       z-index: 1;
     }
-    .footer-note a {
+    .calc-header { text-align: center; margin-bottom: 1.5rem; }
+    .calc-header h2 { color: #161042; font-size: 1.6rem; font-weight: 800; }
+    .calc-header p { color: #555273; font-size: 0.95rem; margin-top: 0.4rem; }
+    .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .input-group { display: flex; flex-direction: column; gap: 0.5rem; text-align: left; }
+    .input-group label { font-weight: 700; color: #161042; font-size: 0.9rem; }
+    .input-group input { 
+      padding: 0.9rem 1.2rem; 
+      border-radius: 12px; 
+      border: 2px solid #EDF0FF; 
+      font-family: 'Inter', sans-serif; 
+      font-size: 1rem; 
+      outline: none; 
+      transition: all 0.2s ease;
       color: #161042;
-      text-decoration: none;
-      font-weight: 700;
-      border-bottom: 1px dotted rgba(22, 16, 66, 0.3);
+      font-weight: 600;
     }
+    .input-group input:focus { border-color: #605CFF; background: #F8F9FF; }
+    
+    .calc-result {
+      margin-top: 1.5rem;
+      background: linear-gradient(135deg, #161042, #2B2373);
+      color: white;
+      padding: 1.8rem;
+      border-radius: 16px;
+      text-align: center;
+      display: none;
+      animation: fadeIn 0.4s ease forwards;
+    }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .calc-result h3 { font-size: 1.1rem; font-weight: 500; margin-bottom: 0.5rem; color: #D4D2FF; }
+    .calc-result .price { font-size: 2.5rem; font-weight: 800; color: #ffffff; letter-spacing: -1px; margin-bottom: 0.5rem; }
+    
+    .footer-note { margin-top: 2rem; border-top: 1px solid #EDF0FF; padding-top: 1.5rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; color: #6B688A; font-size: 0.9rem; gap: 1rem; position: relative; z-index: 1; }
+    .footer-note a { color: #161042; text-decoration: none; font-weight: 700; border-bottom: 1px dotted rgba(22, 16, 66, 0.3); }
     .footer-note a:hover { border-bottom: 1px solid #161042; }
 
-    /* =========================================
-       MEDIA QUERIES (MOBILE OPTIMIZATION)
-       ========================================= */
+    /* MOBILE OPTIMIZATION */
     @media (max-width: 850px) {
       .hero { flex-direction: column-reverse; text-align: center; gap: 2rem; }
       .desc { max-width: 100%; margin-left: auto; margin-right: auto; }
@@ -301,6 +138,7 @@
       .hero-content h1 { font-size: 2.2rem; }
       .stats { gap: 1.2rem; flex-direction: row; flex-wrap: wrap; }
       .stat-item { justify-content: center; flex: 1 1 40%; }
+      .calc-grid { grid-template-columns: 1fr; gap: 1rem; }
       .footer-note { flex-direction: column; text-align: center; align-items: center; }
     }
     @media (max-width: 480px) {
@@ -368,7 +206,7 @@
             <i class="fas fa-globe"></i> Tools Parafrase
           </a>
         </div>
-        <div style="margin-top: 1rem; font-size: 0.85rem; color: #6B688A; text-align: inherit; font-weight: 500;">
+        <div style="margin-top: 1rem; font-size: 0.85rem; color: #6B688A; font-weight: 500;">
           <i class="fas fa-lock" style="margin-right: 4px; color: #605CFF;"></i> privasi terjamin · konsultasi gratis
         </div>
       </div>
@@ -390,6 +228,42 @@
       </div>
     </div>
 
+    <!-- KALKULATOR SECTION BARU -->
+    <div class="calculator" id="cek-harga">
+      <div class="calc-header">
+        <h2><i class="fas fa-calculator" style="color: #605CFF; margin-right: 8px;"></i> Kalkulator Harga</h2>
+        <p>Hitung estimasi biaya jasa parafrase secara instan</p>
+      </div>
+      
+      <div class="calc-grid">
+        <div class="input-group">
+          <label for="wordCount">Jumlah Kata Dokumen</label>
+          <input type="number" id="wordCount" placeholder="Contoh: 4000" min="1">
+        </div>
+        <div class="input-group">
+          <label for="aiScore">Skor AI Saat Ini (%)</label>
+          <input type="number" id="aiScore" placeholder="Contoh: 30" min="0" max="100">
+        </div>
+      </div>
+      
+      <div style="text-align: center;">
+        <button onclick="calculatePrice()" class="btn btn-website" style="width: 100%; border-radius: 12px; padding: 1rem;">Hitung Estimasi Biaya</button>
+      </div>
+
+      <div class="calc-result" id="resultBox">
+        <h3>Estimasi Biaya Anda:</h3>
+        <div class="price" id="totalPrice">Rp 0</div>
+        <p style="font-size: 0.85rem; color: #A4A1DF;">*Biaya akhir dapat disesuaikan berdasarkan tingkat kesulitan dokumen.</p>
+        
+        <div style="margin-top: 1.2rem;">
+          <a href="#" id="waOrderBtn" target="_blank" class="btn btn-wa" style="border-radius: 12px; background: #25D366; color: white;">
+            <i class="fab fa-whatsapp"></i> Pesan dengan Harga Ini
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- END KALKULATOR SECTION -->
+
     <div class="footer-note">
       <div>
         <i class="fas fa-flag" style="margin-right: 8px;"></i> 
@@ -404,5 +278,41 @@
       </div>
     </div>
   </div>
+
+  <script>
+    function calculatePrice() {
+      const wordCount = parseInt(document.getElementById('wordCount').value) || 0;
+      const aiScore = parseFloat(document.getElementById('aiScore').value) || 0;
+      
+      if(wordCount === 0) {
+        alert("Silakan masukkan Jumlah Kata terlebih dahulu.");
+        return;
+      }
+
+      // Menentukan harga dasar berdasarkan Skor AI
+      let basePrice = 0;
+      if (aiScore >= 30 && aiScore <= 40) {
+        basePrice = 150000;
+      } else if (aiScore > 40) {
+        basePrice = 300000;
+      }
+
+      // Menghitung harga per kata (Rp 3.000 per blok 250 kata, dibulatkan ke atas)
+      const wordBlocks = Math.ceil(wordCount / 250);
+      const wordPrice = wordBlocks * 3000;
+
+      // Menjumlahkan total
+      const totalPrice = basePrice + wordPrice;
+
+      // Menampilkan hasil di layar
+      document.getElementById('totalPrice').innerText = "Rp " + totalPrice.toLocaleString('id-ID');
+      document.getElementById('resultBox').style.display = "block";
+
+      // Meracik pesan WhatsApp otomatis
+      const waMsg = `Halo Kak, saya mau konsultasi jasa parafrase dari Academic Draft Studio.\n\n*Detail Dokumen Saya:*\n- Jumlah Kata: ${wordCount} kata\n- Skor AI Awal: ${aiScore}%\n- Estimasi di Web: Rp ${totalPrice.toLocaleString('id-ID')}\n\nApakah saya bisa berdiskusi lebih lanjut untuk prosesnya?`;
+      
+      document.getElementById('waOrderBtn').href = `https://wa.me/6285841427931?text=${encodeURIComponent(waMsg)}`;
+    }
+  </script>
 </body>
 </html>
