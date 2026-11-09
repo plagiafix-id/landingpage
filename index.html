@@ -3,236 +3,341 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Academic Draft Studio · Jasa Parafrase Tugas</title>
+  <title>Academic Draft Studio · Premium AI Paraphrasing</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #7A76FF, #554DDE);
+      background-color: #000;
+      color: #fff;
+      /* Background Image Cinematic Dark Mode (bisa diganti URL-nya nanti) */
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 100%), 
+                        url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
       min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* NAVBAR (Header) */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 4rem;
+      width: 100%;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .brand-icon {
+      width: 32px;
+      height: 32px;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 1.5rem;
+      /* Filter invert berguna jika logo asli kakak warnanya hitam agar jadi putih */
+      filter: invert(1) brightness(2); 
     }
-    .card {
-      max-width: 1100px;
-      width: 100%;
-      background-color: #ffffff;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23605CFF' fill-opacity='0.08' d='M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,250.7C960,235,1056,181,1152,165.3C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
-      background-position: bottom;
-      background-repeat: no-repeat;
-      background-size: cover;
-      border-radius: 16px;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-      padding: 2.5rem 2.8rem;
-      transition: all 0.2s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    /* header / brand */
-    .brand { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 2rem; flex-wrap: wrap; }
-    .brand-icon { width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-    .brand-name { font-size: 2rem; font-weight: 800; letter-spacing: -0.02em; color: #161042; }
-    .brand-name span { color: #605CFF; font-weight: 700; }
-    .badge { background: #EDF0FF; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.75rem; font-weight: 700; color: #605CFF; letter-spacing: 0.3px; margin-left: 0.25rem; }
-
-    /* layout utama */
-    .hero { display: flex; flex-direction: row; align-items: center; gap: 2.5rem; margin: 1.5rem 0 2.5rem 0; position: relative; z-index: 1; }
-    .hero-content { flex: 1.2; }
-    .hero-content h1 { font-size: 2.8rem; font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; color: #161042; margin-bottom: 1.2rem; }
-    .hero-content h1 i { color: #605CFF; font-weight: 400; }
-    .hero-highlight { background: #EDF0FF; padding: 0.2rem 1rem; border-radius: 40px; display: inline-block; font-size: 1.1rem; font-weight: 700; color: #605CFF; margin-bottom: 0.8rem; }
-    .desc { font-size: 1.1rem; color: #555273; max-width: 500px; line-height: 1.6; margin: 1.2rem 0 2rem 0; font-weight: 400; }
-    .desc strong { color: #161042; font-weight: 700; }
-    .stats { display: flex; gap: 2.5rem; margin: 2rem 0 2.2rem 0; flex-wrap: wrap; }
-    .stat-item { display: flex; align-items: center; gap: 0.6rem; }
-    .stat-number { font-weight: 800; font-size: 1.5rem; color: #161042; }
-    .stat-label { font-weight: 500; color: #6B688A; font-size: 0.95rem; }
-    .stat-icon { color: #605CFF; font-size: 1.2rem; }
-
-    /* tombol aksi */
-    .btn-group { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-top: 0.5rem; }
-    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; padding: 0.9rem 2rem; border-radius: 60px; font-weight: 700; font-size: 1.05rem; text-decoration: none; transition: all 0.2s ease; flex: 1 0 auto; text-align: center; cursor: pointer; border: none; }
-    .btn-wa { background: #25D366; color: white; box-shadow: 0 8px 18px -6px rgba(37, 211, 102, 0.3); }
-    .btn-wa:hover { background: #1ebe5c; transform: translateY(-2px); box-shadow: 0 12px 24px -8px rgba(37, 211, 102, 0.4); }
-    .btn-website { background: #605CFF; color: white; box-shadow: 0 8px 18px -6px rgba(96, 92, 255, 0.3); }
-    .btn-website:hover { background: #4B47DE; transform: translateY(-2px); box-shadow: 0 12px 24px -8px rgba(96, 92, 255, 0.4); }
-
-    /* gambar/ilustrasi */
-    .hero-visual { flex: 1; display: flex; justify-content: center; align-items: center; width: 100%; }
-    .illustration { background: #ffffff; border-radius: 24px; padding: 2rem 1.5rem; width: 100%; max-width: 320px; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 20px 40px -10px rgba(96, 92, 255, 0.15); border: 1px solid #EDF0FF; text-align: center; position: relative; z-index: 2; }
-    .illustration i.main-icon { font-size: 3.5rem; color: #ffffff; background: #605CFF; padding: 1rem; border-radius: 16px; box-shadow: 0 12px 24px -12px rgba(96, 92, 255, 0.5); margin-bottom: 1.2rem; }
-    .illustration h3 { font-weight: 800; color: #161042; font-size: 1.2rem; margin-top: 0.4rem; }
-    .illustration p { font-size: 0.9rem; color: #555273; max-width: 200px; font-weight: 400; line-height: 1.5; margin: 0.8rem 0; }
-    .pill-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-top: 0.8rem; font-size: 0.85rem; font-weight: 700; }
-    .pill-list span { background: #EDF0FF; padding: 0.4rem 0.8rem; border-radius: 30px; color: #605CFF; }
-    .pill-list i { font-size: 0.8rem; margin-right: 0.3rem; color: #605CFF; }
-
-    /* KALKULATOR SECTION */
-    .calculator {
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(8px);
-      border: 1px solid #EDF0FF;
-      border-radius: 24px;
-      padding: 2rem;
-      margin: 2rem 0;
-      box-shadow: 0 10px 30px -10px rgba(22, 16, 66, 0.05);
-      position: relative;
-      z-index: 1;
-    }
-    .calc-header { text-align: center; margin-bottom: 1.5rem; }
-    .calc-header h2 { color: #161042; font-size: 1.6rem; font-weight: 800; }
-    .calc-header p { color: #555273; font-size: 0.95rem; margin-top: 0.4rem; }
-    .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
-    .input-group { display: flex; flex-direction: column; gap: 0.5rem; text-align: left; }
-    .input-group label { font-weight: 700; color: #161042; font-size: 0.9rem; }
-    .input-group input { 
-      padding: 0.9rem 1.2rem; 
-      border-radius: 12px; 
-      border: 2px solid #EDF0FF; 
-      font-family: 'Inter', sans-serif; 
-      font-size: 1rem; 
-      outline: none; 
-      transition: all 0.2s ease;
-      color: #161042;
+    .brand-name {
+      font-size: 1.2rem;
       font-weight: 600;
+      letter-spacing: 0.02em;
+      color: #fff;
     }
-    .input-group input:focus { border-color: #605CFF; background: #F8F9FF; }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    .nav-links a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    .nav-links a:hover { color: #fff; }
+
+    /* HERO SECTION */
+    .hero-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
     
+    .hero-content {
+      max-width: 700px;
+    }
+    
+    .badge {
+      display: inline-block;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      color: rgba(255, 255, 255, 0.8);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      font-weight: 500;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-content p.desc {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.6;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+      max-width: 600px;
+    }
+
+    /* BUTTONS Khas Referensi (Tajam, Uppercase) */
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1.5rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border-radius: 4px;
+    }
+    .btn i { font-size: 0.7rem; }
+    
+    .btn-primary {
+      background: #ffffff;
+      color: #000000;
+      border: 1px solid #ffffff;
+    }
+    .btn-primary:hover {
+      background: #e0e0e0;
+      transform: translateX(3px);
+    }
+    
+    .btn-secondary {
+      background: transparent;
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    .btn-secondary:hover {
+      border-color: #ffffff;
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateX(3px);
+    }
+
+    /* STATS (Dibuat minimalis di bawah tombol) */
+    .stats {
+      display: flex;
+      gap: 2rem;
+      margin-top: 4rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 2rem;
+    }
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+    }
+    .stat-number {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #fff;
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 0.2rem;
+    }
+
+    /* KALKULATOR (GLASSMORPHISM DARK MODE) */
+    .calculator-section {
+      padding: 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .calculator-card {
+      background: rgba(20, 20, 20, 0.6);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 3rem;
+      max-width: 800px;
+    }
+    
+    .calc-header { margin-bottom: 2rem; }
+    .calc-header h2 { font-size: 1.8rem; font-weight: 500; letter-spacing: -0.02em; }
+    .calc-header p { color: rgba(255, 255, 255, 0.6); font-size: 0.95rem; margin-top: 0.5rem; font-weight: 300;}
+    
+    .calc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .input-group label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: rgba(255, 255, 255, 0.6);
+    }
+    .input-group input {
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 1rem 1.2rem;
+      border-radius: 4px;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+    .input-group input:focus {
+      border-color: #fff;
+      background: rgba(0, 0, 0, 0.8);
+    }
+
     .calc-result {
-      margin-top: 1.5rem;
-      background: linear-gradient(135deg, #161042, #2B2373);
-      color: white;
-      padding: 1.8rem;
-      border-radius: 16px;
-      text-align: center;
+      margin-top: 2rem;
+      padding: 2rem;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
       display: none;
-      animation: fadeIn 0.4s ease forwards;
+      animation: fadeIn 0.5s ease forwards;
     }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-    .calc-result h3 { font-size: 1.1rem; font-weight: 500; margin-bottom: 0.5rem; color: #D4D2FF; }
-    .calc-result .price { font-size: 2.5rem; font-weight: 800; color: #ffffff; letter-spacing: -1px; margin-bottom: 0.5rem; }
     
-    .footer-note { margin-top: 2rem; border-top: 1px solid #EDF0FF; padding-top: 1.5rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; color: #6B688A; font-size: 0.9rem; gap: 1rem; position: relative; z-index: 1; }
-    .footer-note a { color: #161042; text-decoration: none; font-weight: 700; border-bottom: 1px dotted rgba(22, 16, 66, 0.3); }
-    .footer-note a:hover { border-bottom: 1px solid #161042; }
+    .calc-result h3 { font-size: 0.9rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+    .price-display { font-size: 2.5rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
 
-    /* MOBILE OPTIMIZATION */
-    @media (max-width: 850px) {
-      .hero { flex-direction: column-reverse; text-align: center; gap: 2rem; }
-      .desc { max-width: 100%; margin-left: auto; margin-right: auto; }
-      .stats { justify-content: center; }
-      .btn-group { justify-content: center; }
-      .brand { justify-content: center; }
+    /* FOOTER */
+    .footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 2rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 0.85rem;
     }
-    @media (max-width: 640px) {
-      body { padding: 1rem; }
-      .card { padding: 2rem 1.5rem; border-radius: 12px; }
-      .brand-name { font-size: 1.6rem; }
-      .hero-content h1 { font-size: 2.2rem; }
-      .stats { gap: 1.2rem; flex-direction: row; flex-wrap: wrap; }
-      .stat-item { justify-content: center; flex: 1 1 40%; }
-      .calc-grid { grid-template-columns: 1fr; gap: 1rem; }
-      .footer-note { flex-direction: column; text-align: center; align-items: center; }
-    }
-    @media (max-width: 480px) {
-      .card { padding: 1.5rem 1.2rem; }
-      .hero-content h1 { font-size: 1.9rem; }
-      .btn { flex: 1 1 100%; width: 100%; padding: 0.9rem 1rem; }
-      .stat-item { flex: 1 1 100%; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .navbar { padding: 1.5rem 2rem; }
+      .nav-links { display: none; } /* Sembunyikan menu di mobile agar clean */
+      .hero-container, .calculator-section { padding: 3rem 2rem; }
+      .hero-content h1 { font-size: 2.5rem; }
+      .calc-grid { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; gap: 1rem; padding: 2rem; text-align: center; }
     }
   </style>
 </head>
 <body>
-  <div class="card">
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
     <div class="brand">
       <div class="brand-icon">
-        <img src="logo.png" alt="Logo Academic Draft Studio" style="width: 100%; height: 100%; object-fit: contain;">
+        <img src="logo.png" alt="Logo ADS" style="width: 100%; height: 100%; object-fit: contain;">
       </div>
-      <div class="brand-name">Academic Draft Studio<span></span></div>
-      <span class="badge"><i class="fas fa-check-circle" style="margin-right: 6px;"></i>terpercaya</span>
+      <div class="brand-name">ACADEMIC DRAFT STUDIO</div>
     </div>
+    <div class="nav-links">
+      <a href="#hero">Overview</a>
+      <a href="#kalkulator">Pricing</a>
+      <a href="https://wa.me/6285841427931" target="_blank">Contact</a>
+    </div>
+  </nav>
 
-    <div class="hero">
-      <div class="hero-content">
-        <div class="hero-highlight">
-          <i class="fas fa-pen-fancy" style="margin-right: 10px;"></i> parafrase cerdas
-        </div>
-        <h1>
-          Turunkan Skor <br />
-          <i>Plagiasi & AI</i> <br />
-          Turnitin · Drillbit
-        </h1>
-        <p class="desc">
-          <strong>Academic Draft Studio</strong> — jasa parafrase tugas akademik. 
-          Kami bantu turunkan <strong>skor plagiasi</strong> dan 
-          <strong>AI score</strong> (Turnitin, Drillbit) dengan pendekatan 
-          humanised & aman.
-        </p>
-        
-        <div class="stats">
-          <div class="stat-item">
-            <i class="fas fa-check-circle stat-icon"></i>
-            <span class="stat-number">98%</span>
-            <span class="stat-label">skor turun</span>
-          </div>
-          <div class="stat-item">
-            <i class="fas fa-user-graduate stat-icon"></i>
-            <span class="stat-number">2.4k+</span>
-            <span class="stat-label">tugas selesai</span>
-          </div>
-          <div class="stat-item">
-            <i class="fas fa-clock stat-icon"></i>
-            <span class="stat-number">24 jam</span>
-            <span class="stat-label">pengerjaan</span>
-          </div>
-        </div>
+  <!-- HERO SECTION -->
+  <main class="hero-container" id="hero">
+    <div class="hero-content">
+      <div class="badge">Aman & Terpercaya</div>
+      
+      <h1>Turunkan Skor <br>Plagiasi & AI <br>Turnitin · Drillbit</h1>
+      
+      <p class="desc">
+        Bangun, perbaiki, dan sempurnakan draf tugas akademik Anda dengan 
+        pendekatan humanised. Kami mengamankan skor Turnitin dan Drillbit Anda 
+        dengan privasi yang terjamin sepenuhnya.
+      </p>
 
-        <div class="btn-group">
-          <a href="https://wa.me/6285841427931?text=Halo%20Academicdraft%2C%20saya%20butuh%20bantuan%20parafrase%20tugas" 
-             target="_blank" 
-             class="btn btn-wa">
-            <i class="fab fa-whatsapp"></i> Chat WhatsApp
-          </a>
-          <a href="https://drillbit-ai-hunter.vercel.app" 
-             target="_blank" 
-             class="btn btn-website">
-            <i class="fas fa-globe"></i> Tools Parafrase
-          </a>
-        </div>
-        <div style="margin-top: 1rem; font-size: 0.85rem; color: #6B688A; font-weight: 500;">
-          <i class="fas fa-lock" style="margin-right: 4px; color: #605CFF;"></i> privasi terjamin · konsultasi gratis
-        </div>
+      <div class="btn-group">
+        <a href="#kalkulator" class="btn btn-primary">
+          CEK ESTIMASI HARGA <i class="fas fa-chevron-right"></i>
+        </a>
+        <a href="https://drillbit-ai-hunter.vercel.app" target="_blank" class="btn btn-secondary">
+          TOOLS PARAFRASE <i class="fas fa-chevron-right"></i>
+        </a>
       </div>
 
-      <div class="hero-visual">
-        <div class="illustration">
-          <i class="fas fa-file-signature main-icon"></i>
-          <h3>Parafrase Profesional</h3>
-          <p>Turunkan skor Turnitin & Drillbit tanpa mengubah makna</p>
-          <div class="pill-list">
-            <span><i class="fas fa-shield-alt"></i> Aman</span>
-            <span><i class="fas fa-robot"></i> AI-free</span>
-            <span><i class="fas fa-star"></i> 4.9/5</span>
-          </div>
-          <div style="margin-top: 1.5rem; background: #EDF0FF; padding: 0.5rem 1rem; border-radius: 40px; font-weight: 700; font-size: 0.75rem; color: #605CFF; letter-spacing: 0.3px;">
-            <i class="fas fa-check" style="margin-right: 4px;"></i> 100% human paraphrase
-          </div>
+      <div class="stats">
+        <div class="stat-item">
+          <span class="stat-number">98%</span>
+          <span class="stat-label">Tingkat Keberhasilan</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">2.4k+</span>
+          <span class="stat-label">Dokumen Selesai</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">24h</span>
+          <span class="stat-label">Estimasi Waktu</span>
         </div>
       </div>
     </div>
+  </main>
 
-    <!-- KALKULATOR SECTION BARU -->
-    <div class="calculator" id="cek-harga">
+  <!-- CALCULATOR SECTION -->
+  <section class="calculator-section" id="kalkulator">
+    <div class="calculator-card">
       <div class="calc-header">
-        <h2><i class="fas fa-calculator" style="color: #605CFF; margin-right: 8px;"></i> Kalkulator Harga</h2>
-        <p>Hitung estimasi biaya jasa parafrase secara instan</p>
+        <h2>Estimasi Biaya Transparan</h2>
+        <p>Hitung proyeksi investasi untuk dokumen Anda secara instan tanpa biaya tersembunyi.</p>
       </div>
       
       <div class="calc-grid">
@@ -246,38 +351,29 @@
         </div>
       </div>
       
-      <div style="text-align: center;">
-        <button onclick="calculatePrice()" class="btn btn-website" style="width: 100%; border-radius: 12px; padding: 1rem;">Hitung Estimasi Biaya</button>
-      </div>
+      <button onclick="calculatePrice()" class="btn btn-primary" style="width: 100%; border-radius: 4px; padding: 1.2rem;">
+        HITUNG ESTIMASI SEKARANG
+      </button>
 
       <div class="calc-result" id="resultBox">
-        <h3>Estimasi Biaya Anda:</h3>
-        <div class="price" id="totalPrice">Rp 0</div>
-        <p style="font-size: 0.85rem; color: #A4A1DF;">*Biaya akhir dapat disesuaikan berdasarkan tingkat kesulitan dokumen.</p>
+        <h3>Proyeksi Biaya</h3>
+        <div class="price-display" id="totalPrice">Rp 0</div>
+        <p style="font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-bottom: 1.5rem;">
+          *Angka ini adalah estimasi dasar. Biaya final dapat disesuaikan bergantung pada tingkat kerumitan dokumen.
+        </p>
         
-        <div style="margin-top: 1.2rem;">
-          <a href="#" id="waOrderBtn" target="_blank" class="btn btn-wa" style="border-radius: 12px; background: #25D366; color: white;">
-            <i class="fab fa-whatsapp"></i> Pesan dengan Harga Ini
-          </a>
-        </div>
+        <a href="#" id="waOrderBtn" target="_blank" class="btn btn-primary" style="background: #25D366; border-color: #25D366; color: white;">
+          <i class="fab fa-whatsapp"></i> LANJUTKAN KE WHATSAPP
+        </a>
       </div>
     </div>
-    <!-- END KALKULATOR SECTION -->
+  </section>
 
-    <div class="footer-note">
-      <div>
-        <i class="fas fa-flag" style="margin-right: 8px;"></i> 
-        <strong>Academic Draft Studio</strong> · jasa parafrase
-      </div>
-      <div>
-        <i class="fas fa-phone-alt" style="margin-right: 6px;"></i> 
-        <a href="https://wa.me/6285841427931" target="_blank">+62 858 4142 7931</a>
-        &nbsp;·&nbsp;
-        <i class="fas fa-envelope" style="margin-left: 6px;"></i> 
-        <a href="mailto:academicdraftstudio@gmail.com">academicdraftstudio@gmail.com</a>
-      </div>
-    </div>
-  </div>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>Made by Academic Draft Studio Team</div>
+    <div>Palembang, Indonesia</div>
+  </footer>
 
   <script>
     function calculatePrice() {
@@ -285,11 +381,10 @@
       const aiScore = parseFloat(document.getElementById('aiScore').value) || 0;
       
       if(wordCount === 0) {
-        alert("Silakan masukkan Jumlah Kata terlebih dahulu.");
+        alert("Silakan masukkan Jumlah Kata dokumen Anda.");
         return;
       }
 
-      // Menentukan harga dasar berdasarkan Skor AI
       let basePrice = 0;
       if (aiScore >= 30 && aiScore <= 40) {
         basePrice = 150000;
@@ -297,19 +392,14 @@
         basePrice = 300000;
       }
 
-      // Menghitung harga per kata (Rp 3.000 per blok 250 kata, dibulatkan ke atas)
       const wordBlocks = Math.ceil(wordCount / 250);
       const wordPrice = wordBlocks * 3000;
-
-      // Menjumlahkan total
       const totalPrice = basePrice + wordPrice;
 
-      // Menampilkan hasil di layar
       document.getElementById('totalPrice').innerText = "Rp " + totalPrice.toLocaleString('id-ID');
       document.getElementById('resultBox').style.display = "block";
 
-      // Meracik pesan WhatsApp otomatis
-      const waMsg = `Halo Kak, saya mau konsultasi jasa parafrase dari Academic Draft Studio.\n\n*Detail Dokumen Saya:*\n- Jumlah Kata: ${wordCount} kata\n- Skor AI Awal: ${aiScore}%\n- Estimasi di Web: Rp ${totalPrice.toLocaleString('id-ID')}\n\nApakah saya bisa berdiskusi lebih lanjut untuk prosesnya?`;
+      const waMsg = `Halo Tim Academic Draft Studio,\n\nSaya ingin berkonsultasi mengenai jasa parafrase.\n\n*Detail Dokumen:*\n- Jumlah Kata: ${wordCount} kata\n- Skor AI Awal: ${aiScore}%\n- Proyeksi Biaya di Web: Rp ${totalPrice.toLocaleString('id-ID')}\n\nApakah kita bisa berdiskusi lebih lanjut?`;
       
       document.getElementById('waOrderBtn').href = `https://wa.me/6285841427931?text=${encodeURIComponent(waMsg)}`;
     }
