@@ -15,7 +15,6 @@
       font-family: 'Inter', sans-serif;
       background-color: #000;
       color: #fff;
-  
       background-image: linear-gradient(to right, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 100%), 
                         url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D');
       background-size: cover;
@@ -27,7 +26,6 @@
       overflow-x: hidden;
     }
 
-    /* NAVBAR (Header) */
     .navbar {
       display: flex;
       justify-content: space-between;
@@ -48,7 +46,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      /* Filter invert berguna jika logo asli kakak warnanya hitam agar jadi putih */
       filter: invert(1) brightness(2); 
     }
     .brand-name {
@@ -70,19 +67,22 @@
     }
     .nav-links a:hover { color: #fff; }
 
-    .hero-container {
+    .main-wrapper {
       flex: 1;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
+      flex-direction: row; 
+      align-items: center; 
+      justify-content: space-between;
       padding: 4rem;
-      max-width: 1200px;
+      max-width: 1300px;
       margin: 0 auto;
       width: 100%;
+      gap: 4rem; 
     }
     
     .hero-content {
-      max-width: 700px;
+      flex: 1;
+      max-width: 600px;
     }
     
     .badge {
@@ -114,10 +114,9 @@
       line-height: 1.6;
       margin-bottom: 2.5rem;
       font-weight: 300;
-      max-width: 600px;
+      max-width: 550px;
     }
 
-    /* BUTTONS Khas Referensi (Tajam, Uppercase) */
     .btn-group {
       display: flex;
       gap: 1rem;
@@ -161,11 +160,11 @@
       transform: translateX(3px);
     }
 
-    /* STATS (Dibuat minimalis di bawah tombol) */
+    /* STATS */
     .stats {
       display: flex;
       gap: 2rem;
-      margin-top: 4rem;
+      margin-top: 3.5rem;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
       padding-top: 2rem;
     }
@@ -186,21 +185,17 @@
       margin-top: 0.2rem;
     }
 
-    /* KALKULATOR (GLASSMORPHISM DARK MODE) */
-    .calculator-section {
-      padding: 4rem;
-      max-width: 1200px;
-      margin: 0 auto;
-      width: 100%;
-    }
     .calculator-card {
+      flex: 1;
       background: rgba(20, 20, 20, 0.6);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 12px;
       padding: 3rem;
-      max-width: 800px;
+      max-width: 500px; /* Lebar maksimal kalkulator */
+      width: 100%;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
     }
     
     .calc-header { margin-bottom: 2rem; }
@@ -208,8 +203,8 @@
     .calc-header p { color: rgba(255, 255, 255, 0.6); font-size: 0.95rem; margin-top: 0.5rem; font-weight: 300;}
     
     .calc-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      display: flex;
+      flex-direction: column;
       gap: 1.5rem;
       margin-bottom: 2rem;
     }
@@ -234,6 +229,7 @@
       font-size: 1rem;
       outline: none;
       transition: all 0.3s ease;
+      width: 100%;
     }
     .input-group input:focus {
       border-color: #fff;
@@ -254,7 +250,6 @@
     .calc-result h3 { font-size: 0.9rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
     .price-display { font-size: 2.5rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
 
-    /* FOOTER */
     .footer {
       border-top: 1px solid rgba(255, 255, 255, 0.05);
       padding: 2rem 4rem;
@@ -264,18 +259,22 @@
       font-size: 0.85rem;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 992px) {
       body {
-  
         background-attachment: scroll !important; 
-    
         background-position: 65% center !important; 
       }
       .navbar { padding: 1.5rem 2rem; }
-      .nav-links { display: none; } /* Sembunyikan menu di mobile agar clean */
-      .hero-container, .calculator-section { padding: 3rem 2rem; }
-      .hero-content h1 { font-size: 2.5rem; }
-      .calc-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      
+      .main-wrapper { 
+        flex-direction: column; 
+        padding: 3rem 2rem;
+        gap: 3rem;
+      }
+      .hero-content h1 { font-size: 2.8rem; }
+      .calculator-card { max-width: 100%; padding: 2rem; }
+      
       .footer { flex-direction: column; gap: 1rem; padding: 2rem; text-align: center; }
     }
   </style>
@@ -296,7 +295,8 @@
     </div>
   </nav>
 
-  <main class="hero-container" id="hero">
+  <main class="main-wrapper" id="hero">
+    
     <div class="hero-content">
       <div class="badge">Aman & Terpercaya</div>
       
@@ -309,9 +309,6 @@
       </p>
 
       <div class="btn-group">
-        <a href="#kalkulator" class="btn btn-primary">
-          CEK ESTIMASI HARGA <i class="fas fa-chevron-down"></i>
-        </a>
         <a href="https://drillbit-ai-hunter.vercel.app" target="_blank" class="btn btn-secondary">
           TOOLS PARAFRASE <i class="fas fa-chevron-right"></i>
         </a>
@@ -323,25 +320,23 @@
       <div class="stats">
         <div class="stat-item">
           <span class="stat-number">98%</span>
-          <span class="stat-label">Tingkat Keberhasilan</span>
+          <span class="stat-label">Keberhasilan</span>
         </div>
         <div class="stat-item">
           <span class="stat-number">2.4k+</span>
-          <span class="stat-label">Dokumen Selesai</span>
+          <span class="stat-label">Dokumen</span>
         </div>
         <div class="stat-item">
           <span class="stat-number">24h</span>
-          <span class="stat-label">Estimasi Waktu</span>
+          <span class="stat-label">Waktu Pengerjaan</span>
         </div>
       </div>
     </div>
-  </main>
 
-  <section class="calculator-section" id="kalkulator">
-    <div class="calculator-card">
+    <div class="calculator-card" id="kalkulator">
       <div class="calc-header">
         <h2>Cek Estimasi Biaya</h2>
-        <p>Cek Estimasi Biaya Parafrase Kamu!!.</p>
+        <p>Cek Estimasi Biaya Parafrase Kamu!!</p>
       </div>
       
       <div class="calc-grid">
@@ -362,16 +357,17 @@
       <div class="calc-result" id="resultBox">
         <h3>Proyeksi Biaya</h3>
         <div class="price-display" id="totalPrice">Rp 0</div>
-        <p style="font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-bottom: 1.5rem;">
+        <p style="font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-bottom: 1.5rem; line-height: 1.4;">
           *Angka ini adalah estimasi dasar. Biaya final dapat disesuaikan bergantung pada tingkat kerumitan dokumen.
         </p>
         
-        <a href="#" id="waOrderBtn" target="_blank" class="btn btn-primary" style="background: #25D366; border-color: #25D366; color: white;">
+        <a href="#" id="waOrderBtn" target="_blank" class="btn btn-primary" style="background: #25D366; border-color: #25D366; color: white; width: 100%;">
           <i class="fab fa-whatsapp"></i> LANJUTKAN KE WHATSAPP
         </a>
       </div>
     </div>
-  </section>
+    
+  </main>
 
   <footer class="footer">
     <div>Made by Academic Draft Studio Team</div>
